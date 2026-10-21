@@ -1,48 +1,42 @@
-# Enki — selective memory for AI agents
+# Enki Memory
 
-**Your AI forgets everything between chats. Enki remembers what matters — and forgets what's stale.**
+**A memory your AI agents share, kept on your own computer.**
 
-Enki is a memory layer for LLM agents. It keeps the *current* answer and retires outdated values
-**at write time, deterministically, on your machine** — no LLM in the loop deciding what to forget, so
-no per-write cost or latency, and your data never leaves the box. Your agent recalls today's answer, not
-every value ever mentioned, at about **half the storage**.
+Tell Claude Code something on Monday; Cursor knows it on Tuesday. Enki Memory gives every AI agent you use one
+shared, persistent memory. It runs locally, works offline, and your memories never leave your machine.
 
-## ▶️ Try it live — no signup, runs local
-### → **https://try.enkilabs.co.uk**
-Type a fact, come back "the next day," and watch a standard AI forget while Enki remembers — then see the
-same conversation stored at ~**0.49×** the footprint of keeping everything.
+- **Works with** Claude Code, Claude Desktop, Cursor and Windsurf (connected automatically on install), and any
+  other MCP agent by hand.
+- **Your agent gets six tools:** `store`, `retrieve`, `update`, `discard`, `stats`, `export`.
+- **Local and offline.** Everything runs on your PC, including the search model. No Python or other install needed.
+- **Yours to keep.** Memories live in `%USERPROFILE%\.enki-memory`. Uninstalling removes the program and leaves
+  your memories alone. Recall, forget and export keep working on every plan, even if Pro lapses.
 
-## Why it's different
-Most agent memory either grows forever, or calls an LLM/graph on **every write** to decide what to update
-or invalidate (mem0, Zep, Cognee, and Letta each do a version of this). Enki forgets **deterministically**
-and **locally**:
-- **Write-time supersede** — a newer value for the same thing retires the stale one automatically.
-- **No per-write LLM tax** — no model call to forget: lower cost, lower latency.
-- **Sovereign** — local embeddings, no API key, £0/call; the store is a plain file you can inspect.
-- **Tunable footprint** — dial storage toward ~half.
+### Install (Windows 11, 64-bit; Windows 10 should work but is not tested yet)
+1. Download `EnkiMemory-Windows-*.zip` from **Releases** and unzip it.
+2. Double-click **Install Enki Memory.cmd**. It finds your AI apps and asks before connecting each one.
+3. Restart your AI app. Enki Memory appears in its tools.
 
-Honest scope: recall is **comparable at full retrieval** — the edge is the *mechanism* (local +
-deterministic + cheap) and the *efficiency*, not an accuracy-lead claim.
-**[See the head-to-head LongMemEval results →](https://github.com/stephen487/enki-benchmarks)**
+> **Windows may warn you** the first time, because this preview is not code-signed yet. Signing is on its way.
 
-## Memory as agent tools (MCP)
-Enki exposes a framework-agnostic memory surface over the Model Context Protocol — for Claude
-Desktop/Code, Cursor, Windsurf, or any custom agent:
+Full guide: `README.md` inside the download.
 
-| Tool | What it does |
-|------|--------------|
-| `store` | Save a fact; a newer value auto-retires the stale one; exact duplicates ignored. |
-| `retrieve` | Recall the current, relevant facts (superseded/discarded excluded). |
-| `update` | Explicitly replace a fact (non-numeric changes). |
-| `discard` | Forget a fact (mark-not-delete; retained for audit). |
-| `stats` | Active vs superseded vs total. |
+### Plans
+- **Free:** up to 1,000 facts. No account, no sign-up.
+- **Pro (coming soon):** unlimited facts, £3.99/month or £39/year.
 
-The MCP server is in **closed beta** while we package the engine as a closed distribution.
-**Want early access?** Join the waitlist at **[try.enkilabs.co.uk](https://try.enkilabs.co.uk)** or open an issue here.
+### Privacy
+Your memories never leave your computer. A free install makes **no network connections at all**. With a Pro
+licence, Enki Memory checks the date and renews the licence with our licence service, sending only the licence
+and a random number, never your memories.
 
-## Status
-UK patent application filed (**patent pending**). The Enki engine is **proprietary and closed-source** —
-this repository is documentation and links only; no engine source, configuration, or internals are published here.
+### Honest limits
+- When you change a fact, have your agent use `update`. A reworded new fact does not always replace the old one
+  on its own.
+- `discard` hides a fact from recall and keeps an audit record; it does not scrub it from disk.
 
----
-*Enki Labs (UK) · 2026 · [try.enkilabs.co.uk](https://try.enkilabs.co.uk)*
+### Status
+UK patent application filed (patent pending). The Enki engine is proprietary and closed-source: this repository
+holds documentation and releases only.
+
+Made by Enki Labs UK Ltd · https://enkilabs.co.uk
