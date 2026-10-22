@@ -11,6 +11,8 @@ shared, persistent memory. It runs locally, works offline, and your memories nev
 - **Local and offline.** Everything runs on your PC, including the search model. No Python or other install needed.
 - **Yours to keep.** Memories live in `%USERPROFILE%\.enki-memory`. Uninstalling removes the program and leaves
   your memories alone. Recall, forget and export keep working on every plan, even if Pro lapses.
+- **Leaner memory.** In our June 2026 LongMemEval research runs, Enki's memory engine stored about half as
+  much as mem0. Our full 500-question run is under way; results will be published, wins and losses.
 
 ### Install (Windows 11, 64-bit; Windows 10 should work but is not tested yet)
 1. Download `EnkiMemory-Windows-*.zip` from **Releases** and unzip it.
@@ -22,8 +24,8 @@ shared, persistent memory. It runs locally, works offline, and your memories nev
 Full guide: `README.md` inside the download.
 
 ### Plans
-- **Free:** up to 1,000 facts. No account, no sign-up.
-- **Pro (coming soon):** unlimited facts, £3.99/month or £39/year.
+- **Free:** up to 500 facts. No account, no sign-up, no network.
+- **Pro:** unlimited facts, £3.99/month or £39/year. Buy and manage it at https://enkilabs.co.uk/memory/
 
 ### Privacy
 Your memories never leave your computer. A free install makes **no network connections at all**. With a Pro
