@@ -42,3 +42,8 @@ UK patent application filed (patent pending). The Enki engine is proprietary and
 holds documentation and releases only.
 
 Made by Enki Labs UK Ltd · https://enkilabs.co.uk
+
+
+## AI training
+
+No permission is given to use the contents of this repository to train or fine-tune AI models.
